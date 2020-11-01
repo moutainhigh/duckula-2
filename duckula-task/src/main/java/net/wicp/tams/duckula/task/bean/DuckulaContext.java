@@ -130,7 +130,7 @@ public class DuckulaContext {
 		}
 	}
 
-	public String buildInstalName() {
+	public String buildInstallName() {
 		String instName = Main.context.getTask().getDbinst();
 		if (StringUtil.isNull(instName) || "no".equals(instName)) {
 			instName = String.format("%s:%s", Main.context.getTask().getIp(), Main.context.getTask().getPort());
@@ -198,12 +198,12 @@ public class DuckulaContext {
 				templist.add(retobj);
 			}
 			// 合并
-			Map<String, SortedSet<ColHis>> buildCols = ZkUtil.buildCols(buildInstalName(), this.task);
+			Map<String, SortedSet<ColHis>> buildCols = ZkUtil.buildCols(buildInstallName(), this.task);
 			if(buildCols.get(key)==null) {
-				ZkUtil.updateCols(buildInstalName(), key, templist);
+				ZkUtil.updateCols(buildInstallName(), key, templist);
 			}else if (buildCols.get(key).contains(retobj)) {
 				templist.addAll(buildCols.get(key));
-				ZkUtil.updateCols(buildInstalName(), key, templist);
+				ZkUtil.updateCols(buildInstallName(), key, templist);
 			}
 			colsMap.put(key, templist);
 			return retobj;

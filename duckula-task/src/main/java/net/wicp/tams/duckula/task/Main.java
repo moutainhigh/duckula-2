@@ -112,7 +112,7 @@ public class Main {
 
 			taskConf.buildPos();
 			// 20190613设置好col
-			Map<String, SortedSet<ColHis>> buildCols = ZkUtil.buildCols(Main.context.buildInstalName(),
+			Map<String, SortedSet<ColHis>> buildCols = ZkUtil.buildCols(Main.context.buildInstallName(),
 					Main.context.getTask());
 			Main.context.setColsMap(buildCols);
 			if (context.getTask() == null) {
